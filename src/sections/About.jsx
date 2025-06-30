@@ -3,112 +3,68 @@ import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/FrameWorks";
+import { DecoderText } from "../components/decoder-text";
 
 const About = () => {
   const grid2Container = useRef();
   return (
-    <section className="c-space section-spacing" id="about">
-      <h2 className="text-heading">About Me</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
+    <section
+      className="c-space min-h-screen flex flex-col gap-6 md:mt-0 sm:mt-0 mt-10"
+      id="about"
+    >
+      {/* <h2 className="text-heading">About Me</h2> */}
+      <DecoderText
+        className="text-heading"
+        text="About Me"
+        delay={500}
+      ></DecoderText>
+      {/* Top two grids side by side on md+ */}
+      <div className="flex flex-col md:flex-row w-full flex-1 gap-6">
         {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1">
+        <div className="relative flex-1 rounded-2xl bg-gradient-to-b from-storm to-indigo overflow-hidden flex items-end p-6 min-h-[24rem] md:min-h-[32rem]">
           <img
-            src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
+            src="assets/image.png"
+            alt="Savya Gupta"
+            className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-90"
           />
-          <div className="z-10">
-            <p className="headtext">Hi, I'm Ali Sanati</p>
+          <div className="z-10 relative">
+            <p className="headtext">Hi, I'm Savya Gupta</p>
             <p className="subtext">
-              Over the last 4 years, I developed my frontend and backend dev
-              skills to deliver dynamic and software and web applications.
+              Over the last year, I have developed many frontend and backend
+              applications and interacted with various users.
             </p>
           </div>
-          <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
+          <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
         </div>
-        {/* Grid 2 */}
-        <div className="grid-default-color grid-2">
-          <div
-            ref={grid2Container}
-            className="flex items-center justify-center w-full h-full"
-          >
-            <p className="flex items-end text-5xl text-gray-500">
-              CODE IS CRAFT
-            </p>
-            <Card
-              style={{ rotate: "75deg", top: "30%", left: "20%" }}
-              text="GRASP"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-30deg", top: "60%", left: "45%" }}
-              text="SOLID"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "90deg", bottom: "30%", left: "70%" }}
-              text="Design Patterns"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "55%", left: "0%" }}
-              text="Design Principles"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "20deg", top: "10%", left: "38%" }}
-              text="SRP"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/csharp-pink.png"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/dotnet-pink.png"
-              containerRef={grid2Container}
-            />
-            <Card
-              style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/blazor-pink.png"
-              containerRef={grid2Container}
-            />
-          </div>
-        </div>
+
         {/* Grid 3 */}
-        <div className="grid-black-color grid-3">
-          <div className="z-10 w-[50%]">
+        <div className="relative flex-1 rounded-2xl bg-gradient-to-tl from-[#3A3A3A] via-[#242424] to-[#3A3A3A] overflow-hidden flex flex-col justify-between p-6 min-h-[24rem] md:min-h-[32rem]">
+          <div className="z-10 relative">
             <p className="headtext">Time Zone</p>
             <p className="subtext">
-              I'm based in Mars, and open to remote work worldwide
+              I'm based in India, and open to remote work worldwide
             </p>
           </div>
           <figure className="absolute left-[30%] top-[10%]">
             <Globe />
           </figure>
         </div>
-        {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
-            <CopyEmailButton />
-          </div>
+      </div>
+
+      {/* Grid 5 full-width below */}
+      <div
+        className="mt-5 w-full rounded-2xl md:bg-gradient-to-b from-black to-zinc-900 sm:bg-gradient-to-b lg:bg-gradient-to-b
+ flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 min-h-[18rem] md:min-h-[24rem]"
+      >
+        <div className="z-10 w-full md:w-[50%]">
+          <p className="headtext hidden md:block">Tech Stack</p>
+          <p className="subtext hidden md:block">
+            I specialize in a variety of languages, frameworks, and tools that
+            allow me to build robust and scalable applications.
+          </p>
         </div>
-        {/* Grid 5 */}
-        <div className="grid-default-color grid-5">
-          <div className="z-10 w-[50%]">
-            <p className="headText">Teck Stack</p>
-            <p className="subtext">
-              I specialize in a variety of languages, frameworks, and tools taht
-              allow me to build robust and scalable applications
-            </p>
-          </div>
-          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
-            <Frameworks />
-          </div>
+        <div className="relative w-full md:w-[50%] h-64 md:h-full">
+          <Frameworks />
         </div>
       </div>
     </section>

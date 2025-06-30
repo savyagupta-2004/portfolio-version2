@@ -14,7 +14,7 @@ import { useFrame } from "@react-three/fiber";
 export function Astronaut(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(
-    "/models/tenhun_falling_spaceman_fanart.glb"
+    "/models/ghost_rider_2099_-_zero.glb"
   );
   const { actions } = useAnimations(animations, group);
   useEffect(() => {

@@ -1,19 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
 @import "tailwindcss";
 @theme {
-  --color-primary: #030412;
-  --color-midnight: #06091f;
-  --color-navy: #161a31;
-  --color-indigo: #1f1e39;
-  --color-storm: #282b4b;
-  --color-aqua: #33c2cc;
-  --color-mint: #57db96;
-  --color-royal: #5c33cc;
-  --color-lavender: #7a57db;
-  --color-fuchsia: #ca2f8c;
-  --color-orange: #cc6033;
-  --color-sand: #d6995c;
-  --color-coral: #ea4884;
+  --color-primary: #0a0a0a;
+  --color-midnight: #0d0d15;
+  --color-navy: #13131e;
+  --color-indigo: #1b162b;
+  --color-storm: #2b1d2f;
+  --color-aqua: #2f7a80;
+  --color-mint: #448d6d;
+  --color-royal: #4b3066;
+  --color-lavender: #6a3d7e;
+  --color-fuchsia: #a32452;
+  --color-orange: #cc3d15;
+  --color-sand: #a86b3c;
+  --color-coral: #b82641;
+
+  --color-ember: #d14600;
+  --color-blood: #800000;
+  --color-charcoal: #1a1a1a;
+  --color-ash: #3d3d3d;
+  --color-smoke: #5a5a5a;
+
   --animate-orbit: orbit 50s linear infinite;
   @keyframes orbit {
     0% {
@@ -47,13 +54,21 @@
     }
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
-  background: #030412;
+  background: black;
   font-family: "Funnel Display", sans-serif;
   color: white;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+
+
 
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
@@ -136,3 +151,25 @@ body {
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
 }
+.about-bg-layer {
+  @apply absolute inset-0 bg-cover bg-center;
+  opacity: 0.8;
+}
+
+.about-bg-layer.blend {
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  animation: drift 60s linear infinite alternate;
+}
+
+.about-bg-overlay {
+  @apply absolute inset-0;
+  background: radial-gradient(rgba(0, 0, 0, 0.85), black);
+  z-index: 0;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5%, -5%) scale(1.05); }
+}
+

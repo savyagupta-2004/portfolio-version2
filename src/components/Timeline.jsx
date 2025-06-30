@@ -1,7 +1,7 @@
 "use client";
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-
+import { DecoderText } from "../components/decoder-text";
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -24,13 +24,19 @@ export const Timeline = ({ data }) => {
 
   return (
     <div className="c-space section-spacing" ref={containerRef}>
-      <h2 className="text-heading">My Work Experience</h2>
+      {/* <h2 className="text-heading">My Work Experience</h2> */}
+      <DecoderText
+        delay={500}
+        text="My Work Experience"
+        className="text-heading"
+      ></DecoderText>
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div
             key={index}
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
+            {/* Timeline Dot & Date */}
             <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
               <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
                 <div className="w-4 h-4 p-2 border rounded-full bg-neutral-800 border-neutral-700" />
@@ -42,19 +48,31 @@ export const Timeline = ({ data }) => {
               </div>
             </div>
 
+            {/* Content */}
             <div className="relative w-full pl-20 pr-4 md:pl-4">
               <div className="block mb-4 text-2xl font-bold text-left text-neutral-300 md:hidden ">
                 <h3>{item.date}</h3>
                 <h3>{item.job}</h3>
               </div>
-              {item.contents.map((content, index) => (
-                <p className="mb-3 font-normal text-neutral-400" key={index}>
+              {item.contents.map((content, idx) => (
+                <p className="mb-3 font-normal text-neutral-400" key={idx}>
                   {content}
                 </p>
               ))}
+              {item.certification && (
+                <a
+                  href={item.certification}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-sm font-semibold text-purple-400 hover:underline hover:text-purple-300 transition-all duration-200"
+                >
+                  📜 View Certification
+                </a>
+              )}
             </div>
           </div>
         ))}
+        {/* Vertical Line */}
         <div
           style={{
             height: height + "px",

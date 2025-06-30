@@ -34,7 +34,18 @@ const ReviewCard = ({ img, name, username, body }) => {
 export default function Testimonial() {
   return (
     <div className="items-start mt-25 md:mt-35 c-space">
-      <h2 className="text-heading">Hear From My Clients</h2>
+      <h2 className="text-heading">
+        Hear From{" "}
+        <a
+          href="https://fixmybug.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-cyan-300 hover:underline hover:cursor-pointer"
+        >
+          FixMyBug's
+        </a>{" "}
+        Clients
+      </h2>
       <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
